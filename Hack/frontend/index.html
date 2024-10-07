@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landsat Data Comparison Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Landsat Comparison Tool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link" href="#data-viz">Data Visualization</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="container mt-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Landsat Data Comparison Tool</h1>
+            <p class="lead">Easily compare ground-based observations with Landsat satellite data.</p>
+            <a href="#observationForm" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Map and Form Section -->
+    <section class="container">
+        <h2 id="features" class="mb-4">Select Location and Enter Observations</h2>
+        <div id="map" class="mb-4"></div>
+        
+        <form id="observationForm" class="mb-4">
+            <div class="form-group">
+                <label for="location">Location Coordinates:</label>
+                <input type="text" class="form-control" id="location" placeholder="Click on map to select location" readonly>
+            </div>
+            <div class="form-group">
+                <label for="groundMeasurement">Ground-based Measurement:</label>
+                <input type="text" class="form-control" id="groundMeasurement" placeholder="Enter measurement data" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        <div id="notificationArea" class="alert alert-info d-none">You will be notified of the next Landsat overpass.</div>
+        <div id="dataDisplay" class="mt-4"></div>
+    </section>
+    
+    <!-- Data Visualization Section -->
+    <section id="data-viz" class="container mt-5">
+        <h2>Landsat Data Visualization</h2>
+        <p>View and analyze the Landsat data for your selected location.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65781780.590846896!2d-161.42511451523694!3d36.0583623370741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e1!3m2!1sen!2sus!4v1728251949385!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <canvas id="visualizationChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="container mt-5">
+        <h2>How It Works</h2>
+        <ol>
+            <li>Choose a location by clicking on the map.</li>
+            <li>Enter ground-based measurement data in the form.</li>
+            <li>Submit your data to receive notifications about the next Landsat overpass.</li>
+            <li>After the overpass, access and analyze Landsat data for comparison.</li>
+        </ol>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5">
+        <h2>Contact Us</h2>
+        <form>
+            <div class="form-group">
+                <label for="contactEmail">Email address:</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="contactMessage">Message:</label>
+                <textarea class="form-control" id="contactMessage" rows="3" placeholder="Your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <p>&copy; 2024 Landsat Data Comparison Tool. All rights reserved.</p>
+            <p>Follow us on 
+                <a href="#">Twitter</a> | 
+                <a href="#">Facebook</a> | 
+                <a href="#">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
